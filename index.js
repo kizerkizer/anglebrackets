@@ -14,15 +14,14 @@ const tagsNoClose = ['br'];
 
 const toHtml = (element, strings = [], indentation = 0, insidePre = false, level = 0) => {
   const write = s => (strings.push(s), s), // will likely be inlined
-    writeIndented = s => write(`${sp(indentation * 4)}${s}`); // will likely be inlined
-  if (typeof element.doctype === `string` && level === 0) {
-    write(`<!DOCTYPE ${element.doctype}>\n`);
-  }
-  let text = element.text || ((typeof element === `string`) ? element : undefined);
-  if (text) {
+    writeIndented = s => write(`${sp(indentation * 4)}${s}`), // will likely be inlined
+    getRaw = s => String.raw`${s}`;
+  typeof element.doctype === `string` && level === 0 && write(`<!DOCTYPE ${element.doctype}>\n`);
+  let text;
+  if ( (text = element.text || ((typeof element === `string`) ? element : undefined)) ) {
 
     // TODO escape text inside `code`?
-    writeIndented(insidePre ? text : escape(text));
+    writeIndented(insidePre ? getRaw(text) : escape(text));
     write('\n');
     return;
   }

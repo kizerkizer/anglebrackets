@@ -19,7 +19,7 @@ let jsHtml = {
           name: 'pre',
           attributes: { 'style': 'font-size: 16px;' },
           children: [
-            '<span>An example span.</span>'
+            '<span>An exam\nple span; & the newline ignored!</span>'
           ]
         }
       ]
@@ -35,7 +35,7 @@ let expectedOutput =
     <span id="my-span" style="color: blue;">
         hello, &quot;Charlie&quot; &amp; &quot;Rosie&quot;!
         <pre style="font-size: 16px;">
-            <span>An example span.</span>
+            <span>An exam\nple span; & the newline ignored!</span>
         </pre>
     </span>
     Some more text &lt;wow&gt;!
