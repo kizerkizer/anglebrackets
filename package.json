@@ -1,0 +1,27 @@
+{
+  "name": "anglebrackets",
+  "version": "1.0.0",
+  "description": "Light-weight HTML generation from simple JS objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kizerkizer/anglebrackets.git"
+  },
+  "keywords": [
+    "html",
+    "generation",
+    "anglebrackets",
+    "gen",
+    "codegeneration",
+    "codegen"
+  ],
+  "author": "Alex Kizer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kizerkizer/anglebrackets/issues"
+  },
+  "homepage": "https://github.com/kizerkizer/anglebrackets#readme"
+}
