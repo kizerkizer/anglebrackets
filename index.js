@@ -13,9 +13,10 @@ const tagsNoClose = ['br'];
 const toHtml = (element, strings = [], indentation = 0, insidePre = false) => {
   const write = s => (strings.push(s), s),
   	writeIndented = s => write(`${sp(indentation * 4)}${s}`);
-  if (element.text) {
-  	// TODO do not escape text inside `pre` elements. `code`?
-    writeIndented(insidePre ? element.text : escape(element.text));
+  let text = element.text || ((typeof element === `string`) ? element : void(0));
+  if (text) {
+  	// TODO do not escape text inside `code`?
+    writeIndented(insidePre ? text : escape(text));
     write('\n');
     return;
   }
@@ -25,7 +26,7 @@ const toHtml = (element, strings = [], indentation = 0, insidePre = false) => {
   	.join(` `);
   write(`${attrsStr}>\n`);
   (element.children || []).map(el => toHtml(el, strings, indentation + 1, element.name === `pre`));
-  // TODO some tags options close - check
+  // TODO some tags optional close - check
   if (!(element.name in tagsNoClose)) {
   	writeIndented(`</${element.name}>\n`);
   }
