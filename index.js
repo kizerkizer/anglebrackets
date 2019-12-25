@@ -30,7 +30,7 @@ const toHtml = (element, strings = [], indentation = 0, insidePre = false, level
     .map(([k, v]) => `${k}="${v}"`)
     .join(` `);
   write(`${attrsStr}>\n`);
-  (element.children || []).map(el => toHtml(el, strings, indentation + 1, element.name === `pre`, level + 1));
+  (element.children || []).map(el => toHtml(el, strings, indentation + 1, insidePre || element.name === `pre`, level + 1));
   // TODO some tags optional close - check
   if (!(element.name in tagsNoClose)) {
     writeIndented(`</${element.name}>\n`);
