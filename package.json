@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Light-weight HTML generation from simple JS objects",
   "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-modules index.test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kizerkizer/anglebrackets.git"
