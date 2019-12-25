@@ -1,2 +1,2 @@
 # anglebrackets
-HTML generation
+Light-weight HTML generation from simple JS objects
